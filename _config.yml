@@ -1,0 +1,34 @@
+# Base configs
+baseurl: ""
+image_fulls_loc: "/images/fulls"
+image_thumbs_loc: "/images/thumbs"
+google_analytics: "UA-62585471-5"
+
+# UI configs
+title: "Mat's Trainers | Mat Loughnane"
+name: "Mat Loughnane"
+description: "I am a developer from London, when taking photos, I like to look down and see where my trainers have taken me."
+# logo: "assets/images/logo.png"
+favicon: "assets/images/favicon.png"
+# google_analytics: "UA-62585471-1"
+
+# subtitle: "See the world through my eyes!"
+author: "Mat Loughnane"
+header:
+    title: "Mat's Trainers"
+#  subtitle: "by Mat Loughnane"
+footer:
+    name: "Hey there, my name is Mat"
+    bio: "I am a developer from London, when taking photos, I like to look down and see where my trainers have taken me."
+#  github: ""
+# web_design: "AJ"
+social_urls:
+    facebook: "https://www.facebook.com/mat.loughnane"
+    twitter: "https://www.twitter.com/mat_loughnane"
+    instagram: "https://www.instagram.com/matloughnane"
+    dribbble: "https://dribbble.com/matloughnane"
+    linkedin: "https://linkedin.com/in/matthew-loughnane-97891966/"
+    github: "https://www.github.com/matloughnane"
+
+plugins:
+    - jekyll-seo-tag
