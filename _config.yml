@@ -32,3 +32,4 @@ social_urls:
 
 plugins:
     - jekyll-seo-tag
+    - jekyll-loading-lazy
