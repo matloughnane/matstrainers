@@ -1,0 +1,233 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<!-- META -->
+	<title>Mat's Trainers | Welcome to Jekyll!</title>
+	<link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css"
+		rel="stylesheet" />
+
+	<style>
+		.no-frame {
+			background: rgba(256, 256, 256, 0.8);
+		}
+
+		.no-frame .featherlight-content {
+			/* width: 500px; */
+			padding: 0px;
+			color: #fff;
+			background: #111;
+		}
+
+		.no-frame .featherlight-close {
+			display: none;
+			/* color: rgb(114, 114, 114);
+	background: #333; */
+		}
+	</style>
+</head>
+
+<body class="bg-gray-100">
+
+	<!-- <h1 class="text-5xl bg-red-700 text-white p-5">Mat's Trainers</h1> -->
+
+	<p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>Jekyll requires blog post files to be named according to the following format:</p>
+
+<p><code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="https://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+
+
+	<div
+		class="bg-gradient-to-b from-gray-800 to-gray-900 w-full h-16 px-6 py-2 flex justify-between text-white-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99 rounded-sm">
+		<a href="/" class="cursor-pointer text-gray-100 text-sm text-primary rounded">
+			<span class="flex px-2 py-1 flex-col items-center text-center">
+				<span class="mx-1 py-2 font-semibold">MAT'S TRAINERS</span>
+			</span>
+		</a>
+		<a href="/about" class="hover:cursor-pointer text-gray-100 text-sm text-primary rounded">
+			<span class="flex px-2 py-1 flex-col items-center text-center">
+
+				<span class="mx-1 py-2">ABOUT</span>
+			</span>
+		</a>
+	</div>
+
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript"
+		charset="utf-8"></script>
+
+	<script>
+		// $.featherlight.defaults({
+		// 	closeOnEsc: false
+		// })
+	</script>
+
+	<script>
+	(function (root, factory) {
+		if (typeof define === 'function' && define.amd) {
+			define(function () {
+				return factory(root);
+			});
+		} else if (typeof exports === 'object') {
+			module.exports = factory;
+		} else {
+			root.echo = factory(root);
+		}
+	})(this, function (root) {
+
+		'use strict';
+
+		var echo = {};
+
+		var callback = function () { };
+
+		var offset, poll, delay, useDebounce, unload;
+
+		var isHidden = function (element) {
+			return (element.offsetParent === null);
+		};
+
+		var inView = function (element, view) {
+			if (isHidden(element)) {
+				return false;
+			}
+
+			var box = element.getBoundingClientRect();
+			return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
+		};
+
+		var debounceOrThrottle = function () {
+			if (!useDebounce && !!poll) {
+				return;
+			}
+			clearTimeout(poll);
+			poll = setTimeout(function () {
+				echo.render();
+				poll = null;
+			}, delay);
+		};
+
+		echo.init = function (opts) {
+			opts = opts || {};
+			var offsetAll = opts.offset || 0;
+			var offsetVertical = opts.offsetVertical || offsetAll;
+			var offsetHorizontal = opts.offsetHorizontal || offsetAll;
+			var optionToInt = function (opt, fallback) {
+				return parseInt(opt || fallback, 10);
+			};
+			offset = {
+				t: optionToInt(opts.offsetTop, offsetVertical),
+				b: optionToInt(opts.offsetBottom, offsetVertical),
+				l: optionToInt(opts.offsetLeft, offsetHorizontal),
+				r: optionToInt(opts.offsetRight, offsetHorizontal)
+			};
+			delay = optionToInt(opts.throttle, 250);
+			useDebounce = opts.debounce !== false;
+			unload = !!opts.unload;
+			callback = opts.callback || callback;
+			echo.render();
+			if (document.addEventListener) {
+				root.addEventListener('scroll', debounceOrThrottle, false);
+				root.addEventListener('load', debounceOrThrottle, false);
+			} else {
+				root.attachEvent('onscroll', debounceOrThrottle);
+				root.attachEvent('onload', debounceOrThrottle);
+			}
+		};
+
+		echo.render = function (context) {
+			var nodes = (context || document).querySelectorAll('[data-echo], [data-echo-background]');
+			var length = nodes.length;
+			var src, elem;
+			var view = {
+				l: 0 - offset.l,
+				t: 0 - offset.t,
+				b: (root.innerHeight || document.documentElement.clientHeight) + offset.b,
+				r: (root.innerWidth || document.documentElement.clientWidth) + offset.r
+			};
+			for (var i = 0; i < length; i++) {
+				elem = nodes[i];
+				if (inView(elem, view)) {
+
+					if (unload) {
+						elem.setAttribute('data-echo-placeholder', elem.src);
+					}
+
+					if (elem.getAttribute('data-echo-background') !== null) {
+						elem.style.backgroundImage = 'url(' + elem.getAttribute('data-echo-background') + ')';
+					}
+					else if (elem.src !== (src = elem.getAttribute('data-echo'))) {
+						elem.src = src;
+					}
+
+					if (!unload) {
+						elem.removeAttribute('data-echo');
+						elem.removeAttribute('data-echo-background');
+					}
+
+					callback(elem, 'load');
+				}
+				else if (unload && !!(src = elem.getAttribute('data-echo-placeholder'))) {
+
+					if (elem.getAttribute('data-echo-background') !== null) {
+						elem.style.backgroundImage = 'url(' + src + ')';
+					}
+					else {
+						elem.src = src;
+					}
+
+					elem.removeAttribute('data-echo-placeholder');
+					callback(elem, 'unload');
+				}
+			}
+			if (!length) {
+				echo.detach();
+			}
+		};
+
+		echo.detach = function () {
+			if (document.removeEventListener) {
+				root.removeEventListener('scroll', debounceOrThrottle);
+			} else {
+				root.detachEvent('onscroll', debounceOrThrottle);
+			}
+			clearTimeout(poll);
+		};
+
+		return echo;
+
+	});
+</script>
+<script>
+	echo.init({
+		offset: 2500,
+		throttle: 250,
+		unload: false,
+		callback: function (element, op) {
+			//console.log(element, 'has been', op + 'ed')
+		}
+	});
+</script>
+
+</body>
+
+</html>
