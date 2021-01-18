@@ -1,0 +1,36 @@
+---
+---
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+ul.icons {
+	cursor: default;
+	list-style: none;
+	padding-left: 0;
+
+	li {
+		display: inline-block;
+		padding: 0 1em 0 0;
+
+		&:last-child {
+			padding-right: 0;
+		}
+
+		.icon {
+			&:before {
+				font-size: 1.5em;
+			}
+		}
+	}
+}
+.icon {
+	border-bottom: none;
+	position: relative;
+
+	> .label {
+		display: none;
+	}
+}
+

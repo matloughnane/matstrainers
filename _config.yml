@@ -1,27 +1,47 @@
-# Base configs
-baseurl: ""
-image_fulls_loc: "/images/fulls"
-image_thumbs_loc: "/images/thumbs"
-google_analytics: "UA-62585471-5"
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
 
-# UI configs
-title: "Mat's Trainers | Mat Loughnane"
-name: "Mat Loughnane"
-description: "I am a developer from London, when taking photos, I like to look down and see where my trainers have taken me."
-# logo: "assets/images/logo.png"
-favicon: "assets/images/favicon.png"
-# google_analytics: "UA-62585471-1"
+title: Mat's Trainers
+email: mat@hexastudios.co
+description: >- # this means to ignore newlines until "baseurl:"
+    Write an awesome description for your new site here. You can edit this
+    line in _config.yml. It will appear in your document head meta (for
+    Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+# twitter_username: mat_loughnane
+# github_username: matloughnane
 
-# subtitle: "See the world through my eyes!"
-author: "Mat Loughnane"
-header:
-    title: "Mat's Trainers"
-#  subtitle: "by Mat Loughnane"
-footer:
-    name: "Hey there, my name is Mat"
-    bio: "I am a developer from London, when taking photos, I like to look down and see where my trainers have taken me."
-#  github: ""
-# web_design: "AJ"
+collections:
+    pages:
+        output: true
+        permalink: /:name
+    posts:
+        output: true
+        permalink: /photos/:slug
+
+paginate: 11
+
+images: "/_images/fulls/"
+# Build settings
+
 social_urls:
     facebook: "https://www.facebook.com/mat.loughnane"
     twitter: "https://www.twitter.com/mat_loughnane"
@@ -31,5 +51,30 @@ social_urls:
     github: "https://www.github.com/matloughnane"
 
 plugins:
-    - jekyll-seo-tag
-    - jekyll-loading-lazy
+    - jekyll-feed
+    - jekyll-postcss
+
+sass:
+    # sass_dir: _sass
+    style: compressed
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# https://stevenwestmoreland.com/2021/01/using-tailwind-css-with-jekyll.html

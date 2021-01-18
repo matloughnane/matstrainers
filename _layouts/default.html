@@ -1,13 +1,70 @@
-<!DOCTYPE HTML>
 <html>
-<head>
-    {% include header.html %}
-</head>
-<body>
 
-    {{ content }}
-    
-    {% include footer.html %}
-    {% include lazyload.html %}
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- Styles -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+	<!-- META -->
+	<title>{{site.title}} | {{page.title}}</title>
+	<link href="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.css" type="text/css"
+		rel="stylesheet" />
+
+	<style>
+		.no-frame {
+			background: rgba(256, 256, 256, 0.8);
+		}
+
+		.no-frame .featherlight-content {
+			/* width: 500px; */
+			padding: 0px;
+			color: #fff;
+			background: #111;
+		}
+
+		.no-frame .featherlight-close {
+			display: none;
+			/* color: rgb(114, 114, 114);
+	background: #333; */
+		}
+	</style>
+</head>
+
+<body class="bg-gray-100">
+
+	<!-- <h1 class="text-5xl bg-red-700 text-white p-5">{{site.title}}</h1> -->
+
+	{{ content }}
+
+	<div
+		class="bg-gradient-to-b from-gray-800 to-gray-900 w-full h-16 px-6 py-2 flex justify-between text-white-font fixed bottom-0 shadow-lg z-40 border-t border-gray-99 rounded-sm">
+		<a href="/" class="cursor-pointer text-gray-100 text-sm text-primary rounded">
+			<span class="flex px-2 py-1 flex-col items-center text-center">
+				<span class="mx-1 py-2 font-semibold">{{site.title | upcase}}</span>
+			</span>
+		</a>
+		<a href="/about" class="hover:cursor-pointer text-gray-100 text-sm text-primary rounded">
+			<span class="flex px-2 py-1 flex-col items-center text-center">
+
+				<span class="mx-1 py-2">ABOUT</span>
+			</span>
+		</a>
+	</div>
+
+	<script src="//code.jquery.com/jquery-latest.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/featherlight@1.7.14/release/featherlight.min.js" type="text/javascript"
+		charset="utf-8"></script>
+
+	<script>
+		// $.featherlight.defaults({
+		// 	closeOnEsc: false
+		// })
+	</script>
+
+	{% include lazyload.html %}
+
 </body>
+
 </html>
